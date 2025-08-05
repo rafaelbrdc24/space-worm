@@ -62,10 +62,10 @@ class Game {
         if (!this.gameRunning) return;
         
         const bullet = new Bullet(
-            this.player.x + Math.cos(this.player.rotation) * 25,
-            this.player.y + Math.sin(this.player.rotation) * 25,
-            Math.cos(this.player.rotation) * 10,
-            Math.sin(this.player.rotation) * 10
+            this.player.x + Math.cos(this.player.rotation) * 35,
+            this.player.y + Math.sin(this.player.rotation) * 35,
+            Math.cos(this.player.rotation) * 5,
+            Math.sin(this.player.rotation) * 5
         );
         this.bullets.push(bullet);
         
