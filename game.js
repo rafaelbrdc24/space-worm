@@ -70,20 +70,20 @@ class Game {
         this.bullets.push(bullet);
         
         // Add shooting particles
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 2; i++) {
             this.particles.push(new Particle(
                 bullet.x,
                 bullet.y,
-                (Math.random() - 0.5) * 4,
-                (Math.random() - 0.5) * 4,
+                (Math.random() - 0.5) * 3,
+                (Math.random() - 0.5) * 3,
                 '#4a90e2',
-                20
+                15
             ));
         }
     }
     
     spawnAsteroids() {
-        const count = Math.min(3 + this.phase * 2, 15);
+        const count = Math.min(2 + this.phase, 8);
         for (let i = 0; i < count; i++) {
             let x, y;
             do {
@@ -223,14 +223,14 @@ class Game {
         this.spawnAsteroids();
         
         // Create phase transition effect
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 20; i++) {
             this.particles.push(new Particle(
                 Math.random() * this.width,
                 Math.random() * this.height,
-                (Math.random() - 0.5) * 10,
-                (Math.random() - 0.5) * 10,
+                (Math.random() - 0.5) * 8,
+                (Math.random() - 0.5) * 8,
                 '#f39c12',
-                60
+                40
             ));
         }
     }
@@ -286,7 +286,7 @@ class Game {
     
     drawStars() {
         this.ctx.fillStyle = '#fff';
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 50; i++) {
             const x = (i * 37) % this.width;
             const y = (i * 73) % this.height;
             const size = Math.sin(Date.now() * 0.001 + i) * 0.5 + 0.5;
@@ -491,10 +491,10 @@ class Explosion {
         this.y = y;
         this.particles = [];
         
-        const particleCount = Math.floor(size / 2);
+        const particleCount = Math.min(Math.floor(size / 3), 15);
         for (let i = 0; i < particleCount; i++) {
             const angle = (Math.PI * 2 * i) / particleCount;
-            const speed = Math.random() * 5 + 2;
+            const speed = Math.random() * 4 + 2;
             const colors = ['#ff6b6b', '#ffa500', '#ffff00', '#ff4500'];
             const color = colors[Math.floor(Math.random() * colors.length)];
             
@@ -504,7 +504,7 @@ class Explosion {
                 Math.cos(angle) * speed,
                 Math.sin(angle) * speed,
                 color,
-                30 + Math.random() * 30
+                20 + Math.random() * 20
             ));
         }
     }
