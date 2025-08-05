@@ -311,8 +311,8 @@ class Player {
         this.vy = 0;
         this.rotation = 0;
         this.radius = 20;
-        this.speed = 0.5;
-        this.maxSpeed = 8;
+        this.speed = 0.3;
+        this.maxSpeed = 2;
         this.friction = 0.98;
     }
     
