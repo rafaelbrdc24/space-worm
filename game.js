@@ -34,10 +34,10 @@ class Game {
     
     loadImages() {
         this.playerImg = new Image();
-        this.playerImg.src = 'imagens/player.png';
+        this.playerImg.src = 'player.png';
         
         this.asteroidImg = new Image();
-        this.asteroidImg.src = 'imagens/meteoro.png';
+        this.asteroidImg.src = 'meteoro.png';
     }
     
     setupInput() {
